@@ -1,0 +1,35 @@
+h2 {
+  color: rgb(43, 43, 43);
+  font-weight: 700;
+}
+body {
+  background-color: whitesmoke;
+}
+.titulo {
+  border-bottom: rgb(189, 188, 188) 1px solid;
+}
+.bgbody {
+  background-color: #212529 !important;
+}
+
+.fondo {
+  width: 100%;
+}
+.btnAcciones {
+  gap: 40px;
+}
+
+nav .navbar-nav li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255) !important;
+  font-size: 18px;
+}
+nav .navbar-nav li a:hover {
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+@media (max-width: 767px) {
+  .btnNuevoUsuario {
+    width: 5em;
+  }
+}

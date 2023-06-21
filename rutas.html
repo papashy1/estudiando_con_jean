@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/rutas.css" />
+    <title>Rutas</title>
+  </head>
+  <body>
+    <div class="bgbody col-12 d-flex justify-content-center">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-10">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/index.html"
+            ><i class="fa-solid fa-plane-departure fa-xl"></i
+            ><span class="mx-1"> Travel Camaron</span></a
+          >
+          <div>
+            <div>
+              <div>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNavDropdown"
+                  aria-controls="navbarNavDropdown"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/clientes.html">Clientes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/rutas.html">Rutas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/tickets.html">Tickets</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/puntos.html">Puntos</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+      <div class="col-10">
+        <div class="titulo d-flex justify-content-center">
+          <h2 class="mt-2">Gestion de rutas aereas</h2>
+        </div>
+        <div class="d-flex justify-content-start my-2 mx-2">
+          <button
+            id="nuevaRutaBtn"
+            type="button"
+            class="btnNuevaRuta btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#modalNuevoUsuario"
+          >
+            <span>
+              Nueva Ruta
+              <i class="fa-solid fa-plus" style="color: #ffffff"></i>
+            </span>
+          </button>
+        </div>
+        <div class="table table-responsive table-responsive-sm">
+          <table
+            id="datatable_routes"
+            class="table table-striped table-bordered mx-auto"
+          >
+            <thead>
+              <tr>
+                <th>Nombre Ruta</th>
+                <th>Valor</th>
+                <th>Ciudad Origen</th>
+                <th>Ciudad Destino</th>
+                <th>Puntos Fidelidad</th>
+                <th>Eliminar</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody_routes"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--------------- modal para nueva ruta ---------------------->
+
+    <div
+      class="modal fade"
+      id="modalNuevoUsuario"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">
+              Registro de rutas
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="row g-3">
+              <div class="col-md-6">
+                <label for="nombreRuta" class="form-label"
+                  >Nombre de la ruta</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nombreRuta"
+                  value=""
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="valorRuta" class="form-label">Valor ticket</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="valorRuta"
+                  value=""
+                  required
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="ciudadOrigenNuevo" class="form-label"
+                  >Ciudad Origen</label
+                >
+                <input
+                  class="form-control"
+                  list="origenList"
+                  id="ciudadOrigenNuevo"
+                  placeholder="Type to search..."
+                />
+                <datalist id="origenList">
+                  <option value="Bucaramanga"></option>
+                  <option value="Cartagena"></option>
+                  <option value="Santa Marta"></option>
+                  <option value="Bogota"></option>
+                  <option value="Medellin"></option>
+                </datalist>
+              </div>
+
+              <div class="col-md-6">
+                <label for="ciudadDestinoNuevo" class="form-label"
+                  >Ciudad Destino</label
+                >
+                <input
+                  class="form-control"
+                  list="destinoList"
+                  id="ciudadDestinoNuevo"
+                  placeholder="Type to search..."
+                />
+                <datalist id="destinoList">
+                  <option value="Bucaramanga"></option>
+                  <option value="Cartagena"></option>
+                  <option value="Santa Marta"></option>
+                  <option value="Bogota"></option>
+                  <option value="Medellin"></option>
+                </datalist>
+              </div>
+              <div class="col-md-12">
+                <label for="fidelidadNuevo" class="form-label"
+                  >Puntos fidelización</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fidelidadNuevo"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button id="agregarRutaBtn" type="button" class="btn btn-primary">
+              Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/rutas.js"></script>
+    <script
+      src="https://kit.fontawesome.com/755229d5b0.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
